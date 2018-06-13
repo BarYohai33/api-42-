@@ -1,0 +1,161 @@
+FORMAT: 1A
+HOST: http://127.0.0.1:3031
+
+# API 42
+
+API 42 is a simple API allowing User CRUD actions.
+
+## Users [/users]
+ 
+### List All Users [GET /users/list]
+
++ Response 200 (application/json)
+{
+        "status": 200,
+        "message": "users list successfully retrieved.",
+        "data": [
+            ...
+            {
+                "_id": 0,
+                "name": "name",
+                "age": 10
+                "gender": "gender"
+            }
+            ...
+        ]
+}
+
+## User [/user]
+
+### Create a new User [POST /user/create]
+
++ Attributes
+    + name (required, string) - The user name
+    + age (required, number) - The user age
+    + gender (required, string) - The user gender
+
++ Body
+{
+        "name": "toto",
+        "age": 10,
+        "gender": "robot"
+}
+
++ Response 200 (application/json)
+{
+        "status": 200,
+        "message": "user successfully created.",
+        "data": {
+            "_id": "49943",
+            "name": "toto",
+            "age": 10,
+            "gender": "robot"
+        }
+}
+
++ Response 400 (application/json)
+{
+        "status": 404,
+        "message": "user object malformed",
+        "data": null
+}
+
+### Read a User by id [GET /user/read/{id}]
+
++ Attributes
+    + id (required, number) - The user id
+
++ Response 200 (application/json)
+{
+        "status": 200,
+        "message": "user successfully retrieved.",
+        "data": {
+            "_id": 0,
+            "name": "name",
+            "age": 10
+            "gender": "gender"
+        }
+}
+
++ Response 404 (application/json)
+{
+        "status": 404,
+        "message": "user id not found",
+        "data": null
+}
+
+### Update a User by id [PUT /user/update/{id}]
+
++ Attributes
+    + id (required, number) - The user id
+    + name (required, string) - The user name
+    + age (required, number) - The user age
+    + gender (required, string) - The user gender
+
++ Body
+{
+        "name": "toto",
+        "age": 11,
+        "gender": "robot"
+}
+
++ Response 200 (application/json)
+{
+        "status": 200,
+        "message": "user successfully updated.",
+        "data": null
+}
+
++ Response 404 (application/json)
+{
+        "status": 404,
+        "message": "user id not found.",
+        "data": null
+}
+
++ Response 400 (application/json)
+{
+        "status": 404,
+        "message": "user object malformed.",
+        "data": null
+}
+
+### Delete a User by id [DELETE /user/delete/{id}]
+
++ Attributes
+    + id (required, number) - The user id
+
+
++ Response 200 (application/json)
+{
+        "status": 200,
+        "message": "user successfully deleted.",
+        "data": null
+}
+
++ Response 404 (application/json)
+{
+        "status": 404,
+        "message": "user id not found.",
+        "data": null
+}
+
+## Errors [/]
+
+### 404 Request not found [GET /random-uri]
+
++ Response 404 (application/json)
+{
+        "status": 404,
+        "message": "404 request not found",
+        "data": null
+}
+
+### 505 Server error [GET /]
+
++ Response 404 (application/json)
+{
+        "status": 500,
+        "message": "500 Server error",
+        "data": null
+}

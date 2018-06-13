@@ -1,0 +1,96 @@
+{
+	"variables": [],
+	"info": {
+		"name": "API 42",
+		"_postman_id": "2512c424-95d0-18a1-e4c4-73893a6037ac",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "/user/create",
+					"request": {
+						"url": "127.0.0.1:3031/user/create",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"mds\",\n\t\"age\": 10,\n\t\"gender\": \"robot\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/user/read/:id",
+					"request": {
+						"url": "127.0.0.1:3031/user/read/5b2010bde101ee1fdc3466c4",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/user/update/:id",
+					"request": {
+						"url": "127.0.0.1:3031/user/update/5b2010bde101ee1fdc3466c4",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"mds\",\n\t\"age\": 20,\n\t\"gender\": \"robot\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/user/delete/:id",
+					"request": {
+						"url": "127.0.0.1:3031/user/delete/5b2010bde101ee1fdc3466c4",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "/users/list",
+					"request": {
+						"url": "127.0.0.1:3031/users/list",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
